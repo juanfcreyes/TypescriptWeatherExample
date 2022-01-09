@@ -1,29 +1,39 @@
-import cloudy from '../images/cloudy.png';
-import sunny from '../images/sunny.png';
-import mostlyCloudy from '../images/mostly-cloudy.png';
-import clearCloudy from '../images/clear-cloudy.png';
-import showers from '../images/showers.png';
-import drizzle from '../images/drizzle.png';
-import thunderstroms from '../images/thunderstroms.png';
-import snow from '../images/snow.png';
-import foggy from '../images/foggy.png';
-
-// TODO: Create the interface of Weather Response
+import cloudy from "../images/cloudy.png";
+import sunny from "../images/sunny.png";
+import mostlyCloudy from "../images/mostly-cloudy.png";
+import clearCloudy from "../images/clear-cloudy.png";
+import showers from "../images/showers.png";
+import drizzle from "../images/drizzle.png";
+import thunderstroms from "../images/thunderstroms.png";
+import snow from "../images/snow.png";
+import foggy from "../images/foggy.png";
 
 export interface WeatherResponse {
+    wind: Wind;
+    weather: Weather[];
+    main: Main;
+    name: string;
+    cod: number;
 
 }
-
 interface Wind {
-
+    speed: number;
+    deg: number;
+    gust: number;
 }
-
 interface Weather {
-
+    id: number;
+    main: string;
+    description: string;
+    icon: string;
 }
-
 interface Main {
-
+    temp: number;
+    feels_like: number;
+    temp_min: number;
+    temp_max: number;
+    pressure: number;
+    humidity: number;
 }
 
 export const WeatherIcon = {
@@ -48,13 +58,13 @@ export const WeatherIcon = {
 } as const;
 
 export const DayOfWeek = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday"
 ];
 
 export type WeatherIcontype = keyof typeof WeatherIcon;
